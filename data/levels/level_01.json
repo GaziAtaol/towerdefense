@@ -1,0 +1,15 @@
+{
+  "id": "level_01",
+  "name": "Green Meadows",
+  "biome": "meadow",
+  "grid": {"width": 32, "height": 18, "tileSize": 40},
+  "paths": [
+    {"id": "main", "points": [[0, 6], [6, 6], [6, 9], [14, 9], [14, 12], [24, 12], [24, 5], [31, 5]]}
+  ],
+  "buildable": [[4, 4], [5, 4], [7, 8], [8, 8], [10, 10], [11, 10], [15, 11], [16, 11], [20, 9], [21, 9], [26, 7], [27, 7]],
+  "obstacles": [[12, 7], [13, 7], [18, 10]],
+  "rules": ["standard"],
+  "waves": "level_01",
+  "startCoins": 300,
+  "startLives": 20
+}
