@@ -5,6 +5,7 @@
 #include "ResourceManager.hpp"
 #include "TimeStep.hpp"
 #include <SFML/Graphics.hpp>
+#include <filesystem>
 #include <memory>
 
 namespace core {
@@ -25,6 +26,9 @@ private:
     data::GameDatabase m_database;
     std::unique_ptr<core::Game> m_game;
     core::TimeStep m_time;
+    std::filesystem::path m_projectRoot;
+    std::filesystem::path m_dataPath;
+    std::filesystem::path m_assetsPath;
 };
 
 } // namespace core
