@@ -1,0 +1,15 @@
+{
+  "id": "level_04",
+  "name": "Sandstorm Ridge",
+  "biome": "desert",
+  "grid": {"width": 32, "height": 18, "tileSize": 40},
+  "paths": [
+    {"id": "main", "points": [[0, 8], [5, 8], [5, 5], [12, 5], [12, 10], [20, 10], [20, 3], [31, 3]]}
+  ],
+  "buildable": [[4, 10], [7, 9], [9, 9], [14, 7], [15, 7], [18, 9], [23, 6], [24, 6], [26, 8], [27, 8], [28, 11], [22, 12]],
+  "obstacles": [[6, 7], [16, 6], [21, 8], [25, 9]],
+  "rules": ["fast_enemies"],
+  "waves": "level_04",
+  "startCoins": 320,
+  "startLives": 17
+}
