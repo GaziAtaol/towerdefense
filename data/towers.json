@@ -1,0 +1,445 @@
+{
+  "towers": [
+    {
+      "id": "arrow_mk1",
+      "name": "Arrow Mk.I",
+      "role": "single_target",
+      "cost": 70,
+      "damage": 18,
+      "fireRate": 1.2,
+      "range": 130,
+      "projectileType": "arrow",
+      "armorPen": 0.05,
+      "tags": ["physical"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 6, "range": 10},
+        {"lvl": 3, "damage": 9, "fireRate": 0.2},
+        {"lvl": 4, "damage": 12, "armorPen": 0.05}
+      ],
+      "branchA": {"name": "Rapid Volley", "fireRate": 0.4, "range": 15, "description": "Fires much faster."},
+      "branchB": {"name": "Piercing Tips", "armorPen": 0.3, "damage": 12, "description": "High penetration arrows."}
+    },
+    {
+      "id": "cannon",
+      "name": "Cannon",
+      "role": "aoe",
+      "cost": 120,
+      "damage": 35,
+      "fireRate": 0.8,
+      "range": 150,
+      "projectileType": "shell",
+      "aoeRadius": 50,
+      "tags": ["physical", "splash"],
+      "canHitFlying": false,
+      "upgrades": [
+        {"lvl": 2, "damage": 12, "aoeRadius": 10},
+        {"lvl": 3, "damage": 15, "fireRate": 0.15},
+        {"lvl": 4, "damage": 20, "aoeRadius": 15}
+      ],
+      "branchA": {"name": "Cluster Shells", "aoeRadius": 25, "statusEffect": "shrapnel", "description": "Shells burst into fragments."},
+      "branchB": {"name": "Siege Shot", "damage": 60, "armorPen": 0.4, "description": "Devastating blows."}
+    },
+    {
+      "id": "frost",
+      "name": "Frost Tower",
+      "role": "control",
+      "cost": 110,
+      "damage": 12,
+      "fireRate": 1.0,
+      "range": 140,
+      "projectileType": "shard",
+      "statusEffect": "slow",
+      "tags": ["magic", "slow"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 5, "statusPotency": 0.1},
+        {"lvl": 3, "range": 15, "statusDuration": 0.5},
+        {"lvl": 4, "damage": 8, "freezeThreshold": 0.2}
+      ],
+      "branchA": {"name": "Absolute Zero", "freezeChance": 0.15, "description": "Periodic freezes."},
+      "branchB": {"name": "Icy Wind", "statusDuration": 1.0, "range": 20, "description": "Long lasting slow."}
+    },
+    {
+      "id": "tesla",
+      "name": "Tesla Coil",
+      "role": "chain",
+      "cost": 150,
+      "damage": 28,
+      "fireRate": 1.5,
+      "range": 150,
+      "projectileType": "lightning",
+      "chain": 3,
+      "tags": ["magic", "chain"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 10, "chain": 1},
+        {"lvl": 3, "fireRate": 0.3, "statusEffect": "shock"},
+        {"lvl": 4, "damage": 15, "range": 20}
+      ],
+      "branchA": {"name": "Storm Lattice", "chain": 3, "statusEffect": "shock", "description": "More jumps."},
+      "branchB": {"name": "Critical Surge", "critChance": 0.25, "critMultiplier": 2.2, "description": "High burst damage."}
+    },
+    {
+      "id": "poison",
+      "name": "Poison Spitter",
+      "role": "damage_over_time",
+      "cost": 100,
+      "damage": 9,
+      "fireRate": 1.4,
+      "range": 135,
+      "projectileType": "bolt",
+      "statusEffect": "poison",
+      "tags": ["magic", "dot"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 4, "statusPotency": 0.15},
+        {"lvl": 3, "fireRate": 0.3, "statusDuration": 1.5},
+        {"lvl": 4, "damage": 6, "statusStacks": 2}
+      ],
+      "branchA": {"name": "Venom Nova", "aoeRadius": 30, "statusEffect": "poison", "description": "Splashing toxins."},
+      "branchB": {"name": "Neurotoxin", "statusStacks": 3, "statusPotency": 0.25, "description": "Deadly poison."}
+    },
+    {
+      "id": "sniper",
+      "name": "Sniper Nest",
+      "role": "long_range",
+      "cost": 160,
+      "damage": 110,
+      "fireRate": 0.6,
+      "range": 260,
+      "projectileType": "bullet",
+      "armorPen": 0.65,
+      "tags": ["physical", "single"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 30, "fireRate": 0.1},
+        {"lvl": 3, "range": 30, "armorPen": 0.1},
+        {"lvl": 4, "damage": 45, "statusEffect": "weaken"}
+      ],
+      "branchA": {"name": "Piercer", "armorPen": 0.2, "pierce": 2, "description": "Bullets pierce multiple foes."},
+      "branchB": {"name": "Assassin", "critChance": 0.35, "critMultiplier": 2.8, "description": "Deadly precision."}
+    },
+    {
+      "id": "flamethrower",
+      "name": "Flamethrower",
+      "role": "cone",
+      "cost": 140,
+      "damage": 20,
+      "fireRate": 1.6,
+      "range": 110,
+      "projectileType": "cone",
+      "statusEffect": "burn",
+      "tags": ["fire", "dot"],
+      "canHitFlying": false,
+      "upgrades": [
+        {"lvl": 2, "damage": 8, "statusDuration": 1.0},
+        {"lvl": 3, "fireRate": 0.4, "statusPotency": 0.1},
+        {"lvl": 4, "range": 15, "statusDuration": 1.5}
+      ],
+      "branchA": {"name": "Inferno", "aoeRadius": 70, "statusEffect": "burn", "description": "Wider flames."},
+      "branchB": {"name": "Napalm", "damage": 16, "statusPotency": 0.2, "description": "Sticky burning fuel."}
+    },
+    {
+      "id": "mortar",
+      "name": "Mortar",
+      "role": "artillery",
+      "cost": 180,
+      "damage": 70,
+      "fireRate": 0.5,
+      "range": 280,
+      "minRange": 70,
+      "projectileType": "arc_shell",
+      "aoeRadius": 70,
+      "tags": ["physical", "siege"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 18, "aoeRadius": 10},
+        {"lvl": 3, "fireRate": 0.1, "armorPen": 0.15},
+        {"lvl": 4, "damage": 25, "statusEffect": "weaken"}
+      ],
+      "branchA": {"name": "Carpet Bomb", "aoeRadius": 40, "fireRate": 0.2, "description": "Huge area coverage."},
+      "branchB": {"name": "Siege Breaker", "damage": 45, "armorPen": 0.35, "description": "Bunker busting shots."}
+    },
+    {
+      "id": "aura_support",
+      "name": "Aura Support",
+      "role": "support",
+      "cost": 130,
+      "damage": 0,
+      "fireRate": 0,
+      "range": 0,
+      "projectileType": "none",
+      "tags": ["support"],
+      "canHitFlying": false,
+      "buff": {"attackSpeed": 0.15, "range": 10},
+      "upgrades": [
+        {"lvl": 2, "buff": {"attackSpeed": 0.05, "damage": 5}},
+        {"lvl": 3, "buff": {"range": 15}},
+        {"lvl": 4, "buff": {"attackSpeed": 0.1, "armorPen": 0.1}}
+      ],
+      "branchA": {"name": "Battle Hymn", "buff": {"damage": 10, "attackSpeed": 0.1}, "description": "Boosts offense."},
+      "branchB": {"name": "Bulwark", "buff": {"range": 25, "statusResist": 0.2}, "description": "Improves defenses."}
+    },
+    {
+      "id": "gold_mine",
+      "name": "Gold Mine",
+      "role": "economy",
+      "cost": 140,
+      "damage": 0,
+      "fireRate": 0,
+      "range": 0,
+      "projectileType": "none",
+      "tags": ["economy"],
+      "canHitFlying": false,
+      "income": 35,
+      "upgrades": [
+        {"lvl": 2, "income": 10},
+        {"lvl": 3, "income": 15},
+        {"lvl": 4, "income": 25}
+      ],
+      "branchA": {"name": "Gem Vein", "income": 45, "description": "High yield vein."},
+      "branchB": {"name": "Trade Post", "income": 25, "buff": {"sellRefund": 0.2}, "description": "Better trades."}
+    },
+    {
+      "id": "laser",
+      "name": "Laser Beam",
+      "role": "pierce",
+      "cost": 200,
+      "damage": 30,
+      "fireRate": 2.0,
+      "range": 180,
+      "projectileType": "beam",
+      "pierce": 6,
+      "tags": ["energy", "pierce"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 10, "pierce": 2},
+        {"lvl": 3, "fireRate": 0.4, "statusEffect": "burn"},
+        {"lvl": 4, "damage": 15, "armorPen": 0.2}
+      ],
+      "branchA": {"name": "Prism", "pierce": 4, "aoeRadius": 30, "description": "Splits into prismatic beams."},
+      "branchB": {"name": "Overcharge", "damage": 25, "critChance": 0.3, "description": "High energy shots."}
+    },
+    {
+      "id": "mine_layer",
+      "name": "Mine Layer",
+      "role": "trap",
+      "cost": 125,
+      "damage": 45,
+      "fireRate": 0.3,
+      "range": 90,
+      "projectileType": "mine",
+      "aoeRadius": 70,
+      "tags": ["trap"],
+      "canHitFlying": false,
+      "upgrades": [
+        {"lvl": 2, "damage": 12, "aoeRadius": 10},
+        {"lvl": 3, "fireRate": 0.1, "statusEffect": "slow"},
+        {"lvl": 4, "damage": 20, "statusEffect": "weaken"}
+      ],
+      "branchA": {"name": "Chain Mines", "chain": 2, "description": "Explosions jump to new mines."},
+      "branchB": {"name": "Seismic Charge", "aoeRadius": 30, "damage": 35, "description": "Crippling tremors."}
+    },
+    {
+      "id": "storm_totem",
+      "name": "Storm Totem",
+      "role": "aoe_magic",
+      "cost": 150,
+      "damage": 24,
+      "fireRate": 1.0,
+      "range": 160,
+      "projectileType": "shockwave",
+      "statusEffect": "shock",
+      "tags": ["magic", "shock"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 8, "statusDuration": 0.4},
+        {"lvl": 3, "aoeRadius": 20, "chain": 1},
+        {"lvl": 4, "damage": 12, "statusPotency": 0.1}
+      ],
+      "branchA": {"name": "Tempest", "fireRate": 0.4, "chain": 2, "description": "Rapid shocking pulses."},
+      "branchB": {"name": "Thunderhead", "damage": 20, "aoeRadius": 25, "description": "Storm of destruction."}
+    },
+    {
+      "id": "curse",
+      "name": "Curse Obelisk",
+      "role": "debuff",
+      "cost": 130,
+      "damage": 10,
+      "fireRate": 1.1,
+      "range": 150,
+      "projectileType": "curse",
+      "statusEffect": "weaken",
+      "tags": ["magic", "debuff"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "statusPotency": 0.1, "range": 10},
+        {"lvl": 3, "statusDuration": 1.0, "damage": 6},
+        {"lvl": 4, "statusPotency": 0.1, "armorPen": 0.15}
+      ],
+      "branchA": {"name": "Hex Field", "aoeRadius": 50, "statusDuration": 1.5, "description": "Lingering debuff field."},
+      "branchB": {"name": "Soul Rend", "damage": 18, "statusPotency": 0.2, "description": "Crippling curse."}
+    },
+    {
+      "id": "drone_bay",
+      "name": "Drone Bay",
+      "role": "close_defense",
+      "cost": 145,
+      "damage": 22,
+      "fireRate": 1.7,
+      "range": 100,
+      "projectileType": "drone",
+      "tags": ["physical", "multi"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 10, "drones": 1},
+        {"lvl": 3, "fireRate": 0.3, "range": 10},
+        {"lvl": 4, "damage": 12, "statusEffect": "shock"}
+      ],
+      "branchA": {"name": "Interceptor", "drones": 2, "canHitFlying": true, "description": "More anti-air drones."},
+      "branchB": {"name": "Guardian", "statusEffect": "slow", "armor": 15, "description": "Defensive drones."}
+    },
+    {
+      "id": "shrapnel",
+      "name": "Shrapnel Turret",
+      "role": "spread",
+      "cost": 125,
+      "damage": 16,
+      "fireRate": 1.8,
+      "range": 120,
+      "projectileType": "shrapnel",
+      "tags": ["physical", "multi"],
+      "canHitFlying": false,
+      "upgrades": [
+        {"lvl": 2, "damage": 6, "projectiles": 2},
+        {"lvl": 3, "fireRate": 0.3, "spread": 5},
+        {"lvl": 4, "damage": 8, "armorPen": 0.1}
+      ],
+      "branchA": {"name": "Scatter Storm", "projectiles": 3, "fireRate": 0.4, "description": "More pellets."},
+      "branchB": {"name": "Slug Shot", "damage": 20, "pierce": 1, "description": "Focused slug round."}
+    },
+    {
+      "id": "sticky_goo",
+      "name": "Sticky Goo",
+      "role": "slow",
+      "cost": 90,
+      "damage": 4,
+      "fireRate": 1.0,
+      "range": 120,
+      "projectileType": "glob",
+      "statusEffect": "slow",
+      "tags": ["control"],
+      "canHitFlying": false,
+      "upgrades": [
+        {"lvl": 2, "statusPotency": 0.2, "statusDuration": 1.0},
+        {"lvl": 3, "fireRate": 0.2, "statusDuration": 1.5},
+        {"lvl": 4, "statusPotency": 0.1, "aoeRadius": 20}
+      ],
+      "branchA": {"name": "Quicksand", "statusDuration": 2.0, "aoeRadius": 40, "description": "Slows entire area."},
+      "branchB": {"name": "Caustic Goo", "damage": 12, "statusEffect": "poison", "description": "Corrosive slime."}
+    },
+    {
+      "id": "arcane_bolt",
+      "name": "Arcane Bolt",
+      "role": "magic_damage",
+      "cost": 135,
+      "damage": 24,
+      "fireRate": 1.2,
+      "range": 150,
+      "projectileType": "arcane",
+      "tags": ["magic"],
+      "magicResistShred": 0.1,
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 8, "magicResistShred": 0.05},
+        {"lvl": 3, "fireRate": 0.2, "statusEffect": "burn"},
+        {"lvl": 4, "damage": 12, "range": 20}
+      ],
+      "branchA": {"name": "Arcane Storm", "aoeRadius": 30, "chain": 1, "description": "Bolts split on impact."},
+      "branchB": {"name": "Mana Pierce", "magicResistShred": 0.15, "damage": 15, "description": "Shreds resistances."}
+    },
+    {
+      "id": "railgun",
+      "name": "Railgun",
+      "role": "charge_shot",
+      "cost": 210,
+      "damage": 220,
+      "fireRate": 0.35,
+      "range": 300,
+      "projectileType": "rail",
+      "pierce": 8,
+      "armorPen": 0.75,
+      "tags": ["physical", "pierce"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 60, "pierce": 2},
+        {"lvl": 3, "fireRate": 0.1, "chargeTime": -0.2},
+        {"lvl": 4, "damage": 80, "statusEffect": "shock"}
+      ],
+      "branchA": {"name": "Gauss Burst", "fireRate": 0.15, "pierce": 4, "description": "Faster bursts."},
+      "branchB": {"name": "Titan Shot", "damage": 120, "armorPen": 0.15, "description": "One shot obliteration."}
+    },
+    {
+      "id": "colossus",
+      "name": "Colossus",
+      "role": "melee",
+      "cost": 190,
+      "damage": 32,
+      "fireRate": 1.1,
+      "range": 70,
+      "projectileType": "melee",
+      "tags": ["tank"],
+      "canHitFlying": false,
+      "taunt": true,
+      "healthBonus": 400,
+      "upgrades": [
+        {"lvl": 2, "damage": 8, "healthBonus": 80},
+        {"lvl": 3, "armor": 25, "statusResist": 0.15},
+        {"lvl": 4, "damage": 12, "aoeRadius": 20}
+      ],
+      "branchA": {"name": "Stone Guard", "armor": 40, "tauntRadius": 120, "description": "Greater protection."},
+      "branchB": {"name": "Earthquake", "aoeRadius": 40, "damage": 25, "description": "Stomps stun foes."}
+    },
+    {
+      "id": "storm_mage",
+      "name": "Storm Mage",
+      "role": "hybrid",
+      "cost": 150,
+      "damage": 20,
+      "fireRate": 1.3,
+      "range": 160,
+      "projectileType": "storm_bolt",
+      "statusEffect": "shock",
+      "tags": ["magic", "utility"],
+      "canHitFlying": true,
+      "upgrades": [
+        {"lvl": 2, "damage": 6, "statusDuration": 0.3},
+        {"lvl": 3, "chain": 1, "statusPotency": 0.1},
+        {"lvl": 4, "damage": 10, "range": 15}
+      ],
+      "branchA": {"name": "Tempest Lord", "chain": 2, "aoeRadius": 25, "description": "Chain lightning master."},
+      "branchB": {"name": "Eye of Storm", "statusDuration": 0.8, "statusEffect": "slow", "description": "Shock slows foes."}
+    },
+    {
+      "id": "spirit_blossom",
+      "name": "Spirit Blossom",
+      "role": "healer",
+      "cost": 130,
+      "damage": 0,
+      "fireRate": 0,
+      "range": 150,
+      "projectileType": "blossom",
+      "tags": ["support", "healing"],
+      "canHitFlying": false,
+      "healing": 12,
+      "upgrades": [
+        {"lvl": 2, "healing": 4, "buff": {"regeneration": 2}},
+        {"lvl": 3, "range": 20, "buff": {"statusResist": 0.1}},
+        {"lvl": 4, "healing": 6, "buff": {"armor": 10}}
+      ],
+      "branchA": {"name": "Vital Bloom", "healing": 12, "buff": {"maxHP": 60}, "description": "Greater healing."},
+      "branchB": {"name": "Purify", "statusEffect": "cleanse", "description": "Removes negative effects."}
+    }
+  ]
+}
