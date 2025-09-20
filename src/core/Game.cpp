@@ -109,7 +109,7 @@ void Game::handleEvent(const sf::Event& event, const sf::Vector2f& mouseWorld) {
 
 void Game::update(float dt) {
     if (m_state == GameState::Gameplay && !m_paused) {
-        float speedMultiplier = static_cast<int>(m_speed);
+        const float speedMultiplier = static_cast<float>(m_speed);
         dt *= speedMultiplier;
         updateEconomy(dt);
         int livesLost = 0;
@@ -146,7 +146,9 @@ void Game::update(float dt) {
         } else if (m_waveInProgress && m_registry.m_enemyStats.empty()) {
             m_waveInProgress = false;
             m_coins += static_cast<int>(m_database.balance.waveClearBonus);
-            if (m_waveIndex >= static_cast<int>(m_database.waves[m_currentLevelId].waves.size())) {
+            if (const auto waveDataIt = m_database.waves.find(m_currentLevelId);
+                waveDataIt != m_database.waves.end() &&
+                m_waveIndex >= static_cast<int>(waveDataIt->second.waves.size())) {
                 m_state = GameState::Victory;
             }
         }

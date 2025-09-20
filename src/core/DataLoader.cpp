@@ -1,6 +1,7 @@
 #include "DataLoader.hpp"
 
 #include <SFML/System/Vector2.hpp>
+#include <SFML/System/Vector3.hpp>
 #include <fstream>
 #include <iostream>
 #include <nlohmann/json.hpp>
@@ -246,24 +247,22 @@ data::GameDatabase DataLoader::loadAll(const std::string& dataPath) {
 }
 
 void DataLoader::saveSettings(const std::string& path, const data::SettingsData& settings) {
-    nlohmann::json j;
-    j["audioVolume"] = settings.audioVolume;
-    j["musicVolume"] = settings.musicVolume;
-    j["gameSpeed"] = settings.gameSpeed;
-    j["graphicsQuality"] = settings.graphicsQuality;
-    j["colorBlindMode"] = settings.colorBlindMode;
+    const nlohmann::json j{{"audioVolume", settings.audioVolume},
+                           {"musicVolume", settings.musicVolume},
+                           {"gameSpeed", settings.gameSpeed},
+                           {"graphicsQuality", settings.graphicsQuality},
+                           {"colorBlindMode", settings.colorBlindMode}};
 
     std::ofstream file(path);
     file << j.dump(2);
 }
 
 void DataLoader::saveProgress(const std::string& path, const data::SaveData& save) {
-    nlohmann::json j;
-    j["lastUnlockedLevel"] = save.lastUnlockedLevel;
-    j["coins"] = save.coins;
-    j["badges"] = save.badges;
-    j["unlockedTowers"] = save.unlockedTowers;
-    j["completedLevels"] = save.completedLevels;
+    const nlohmann::json j{{"lastUnlockedLevel", save.lastUnlockedLevel},
+                           {"coins", save.coins},
+                           {"badges", save.badges},
+                           {"unlockedTowers", save.unlockedTowers},
+                           {"completedLevels", save.completedLevels}};
 
     std::ofstream file(path);
     file << j.dump(2);
