@@ -6,7 +6,7 @@ SFML 2.6 tabanlı, C++20 ile yazılmış veri odaklı kule savunma oyunu. Proje;
 
 * CMake 3.20+
 * C++20 uyumlu derleyici (MSVC 19.30+, GCC 10+, Clang 12+)
-* İnternet erişimi (CMake FetchContent ile SFML 2.6.0 indirir) veya sistemde yüklü SFML 2.6+
+* Sistemde yüklü SFML 2.6+ (find_package ile bulunur)
 
 ## Derleme Talimatları
 
@@ -19,7 +19,7 @@ cmake --build build --config Release
 
 ### Linux (g++/clang++)
 ```bash
-sudo apt-get install libsfml-dev # sistem paketini tercih ederseniz
+sudo apt-get install libsfml-dev # SFML paketini yükleyin
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j
 ./build/bin/TowerDefense
