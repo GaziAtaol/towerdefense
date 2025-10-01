@@ -2,6 +2,7 @@
 
 #include <SFML/System/Vector2.hpp>
 #include <algorithm>
+#include <cmath>
 #include <vector>
 
 namespace math {

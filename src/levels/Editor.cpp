@@ -46,10 +46,15 @@ void LevelEditor::draw(sf::RenderWindow& window) const {
 }
 
 void LevelEditor::exportJson(const std::string& path) const {
-    const nlohmann::json level{{"width", m_width},
-                               {"height", m_height},
-                               {"tileSize", m_tileSize},
-                               {"data", m_data}};
+    nlohmann::json::array_t dataArr;
+    for (const auto& val : m_data) {
+        dataArr.push_back(nlohmann::json(static_cast<nlohmann::json::number_integer_t>(val)));
+    }
+    
+    const nlohmann::json level{{"width", static_cast<nlohmann::json::number_integer_t>(m_width)},
+                               {"height", static_cast<nlohmann::json::number_integer_t>(m_height)},
+                               {"tileSize", static_cast<nlohmann::json::number_integer_t>(m_tileSize)},
+                               {"data", dataArr}};
     std::ofstream file(path);
     file << level.dump(2);
 }

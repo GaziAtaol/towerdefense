@@ -249,7 +249,7 @@ data::GameDatabase DataLoader::loadAll(const std::string& dataPath) {
 void DataLoader::saveSettings(const std::string& path, const data::SettingsData& settings) {
     const nlohmann::json j{{"audioVolume", settings.audioVolume},
                            {"musicVolume", settings.musicVolume},
-                           {"gameSpeed", settings.gameSpeed},
+                           {"gameSpeed", static_cast<nlohmann::json::number_integer_t>(settings.gameSpeed)},
                            {"graphicsQuality", settings.graphicsQuality},
                            {"colorBlindMode", settings.colorBlindMode}};
 
@@ -258,11 +258,26 @@ void DataLoader::saveSettings(const std::string& path, const data::SettingsData&
 }
 
 void DataLoader::saveProgress(const std::string& path, const data::SaveData& save) {
-    const nlohmann::json j{{"lastUnlockedLevel", save.lastUnlockedLevel},
-                           {"coins", save.coins},
-                           {"badges", save.badges},
-                           {"unlockedTowers", save.unlockedTowers},
-                           {"completedLevels", save.completedLevels}};
+    nlohmann::json::array_t badgesArr;
+    for (const auto& badge : save.badges) {
+        badgesArr.push_back(nlohmann::json(badge));
+    }
+    
+    nlohmann::json::array_t unlockedTowersArr;
+    for (const auto& tower : save.unlockedTowers) {
+        unlockedTowersArr.push_back(nlohmann::json(tower));
+    }
+    
+    nlohmann::json::array_t completedLevelsArr;
+    for (const auto& level : save.completedLevels) {
+        completedLevelsArr.push_back(nlohmann::json(level));
+    }
+    
+    const nlohmann::json j{{"lastUnlockedLevel", static_cast<nlohmann::json::number_integer_t>(save.lastUnlockedLevel)},
+                           {"coins", static_cast<nlohmann::json::number_integer_t>(save.coins)},
+                           {"badges", badgesArr},
+                           {"unlockedTowers", unlockedTowersArr},
+                           {"completedLevels", completedLevelsArr}};
 
     std::ofstream file(path);
     file << j.dump(2);
